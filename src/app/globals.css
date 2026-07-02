@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+:root {
+  /* core surfaces */
+  --bg: #07111f;
+  --bg-elevated: #0a1626;
+  --card: #0c1a2c;
+  --card-hover: #102338;
+  --border: #17314f;
+  --border-soft: #122745;
+
+  /* brand */
+  --primary: #4fd1ff;
+  --primary-glow: rgba(79, 209, 255, 0.35);
+  --success: #4ade80;
+  --xp-gold: #ffd54a;
+  --xp-gold-glow: rgba(255, 213, 74, 0.35);
+  --danger: #ff5d5d;
+
+  /* text */
+  --text-hi: #f2f8ff;
+  --text-mid: #9fb4cc;
+  --text-low: #5c7290;
+
+  /* rank tiers (character rank) */
+  --rank-novice: #6b7c93;
+  --rank-iron: #8fd7ff;
+  --rank-bronze: #e0a458;
+  --rank-silver: #c9d6e3;
+  --rank-gold: #ffd54a;
+  --rank-ascended: #b98cff;
+
+  /* exercise ladder tiers */
+  --tier-wood: #8b5e3c;
+  --tier-bronze: #c97c3e;
+  --tier-silver: #b9c4d0;
+  --tier-gold: #ffd54a;
+  --tier-platinum: #5ee6c8;
+  --tier-diamond: #6fa8ff;
+  --tier-champion: #c77dff;
+  --tier-titan: #ff5d5d;
+  --tier-olympian: #4fd1ff;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-primary: var(--primary);
+  --color-success: var(--success);
+  --color-xp-gold: var(--xp-gold);
+  --color-danger: var(--danger);
+  --color-text-hi: var(--text-hi);
+  --color-text-mid: var(--text-mid);
+  --color-text-low: var(--text-low);
+
+  --color-rank-novice: var(--rank-novice);
+  --color-rank-iron: var(--rank-iron);
+  --color-rank-bronze: var(--rank-bronze);
+  --color-rank-silver: var(--rank-silver);
+  --color-rank-gold: var(--rank-gold);
+  --color-rank-ascended: var(--rank-ascended);
+
+  --color-tier-wood: var(--tier-wood);
+  --color-tier-bronze: var(--tier-bronze);
+  --color-tier-silver: var(--tier-silver);
+  --color-tier-gold: var(--tier-gold);
+  --color-tier-platinum: var(--tier-platinum);
+  --color-tier-diamond: var(--tier-diamond);
+  --color-tier-champion: var(--tier-champion);
+  --color-tier-titan: var(--tier-titan);
+  --color-tier-olympian: var(--tier-olympian);
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-hi);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ambient background glow, fixed, doesn't move with scroll */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(79, 209, 255, 0.08), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(185, 140, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
